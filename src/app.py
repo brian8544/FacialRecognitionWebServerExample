@@ -6,12 +6,15 @@ app = Flask(__name__)
 # Load the pre-trained Haar Cascade classifier for face detection
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
+# Set video source: use 0 for webcam or provide the URL of a video stream
+video_source = "http://72.43.190.171:81/mjpg/video.mjpg"  # Change to 0 to use the webcam
+
 def generate_frames():
-    # Capture video from the webcam
-    cap = cv2.VideoCapture(0)
+    # Capture video from the webcam or stream
+    cap = cv2.VideoCapture(video_source)
 
     while True:
-        # Read a frame from the webcam
+        # Read a frame from the webcam or stream
         success, frame = cap.read()
         if not success:
             break

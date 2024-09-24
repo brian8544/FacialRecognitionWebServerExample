@@ -15,13 +15,27 @@
             font-family: Arial, sans-serif;
         }
         img {
-            max-width: 100%;
+            max-width: auto;
             height: auto;
+        }
+        #error-message {
+            display: none;
+            color: red;
         }
     </style>
 </head>
 <body>
-    <h1>Live Video Feed</h1>
-    <img src="http://localhost:5000/" alt="Live Video Feed">
+    <img id="video-feed" src="https://dev3.brianoost.com" alt="Live Feed">
+    <p id="error-message">Server is offline</p>
+
+    <script>
+        const img = document.getElementById('video-feed');
+        const errorMessage = document.getElementById('error-message');
+
+        img.onerror = function() {
+            img.style.display = 'none';
+            errorMessage.style.display = 'block';
+        };
+    </script>
 </body>
 </html>
