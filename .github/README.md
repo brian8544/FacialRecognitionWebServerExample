@@ -1,5 +1,3 @@
-# BrianApp
-
 --------------
 * [Introduction](#introduction)
 * [How to Run](#how-to-run)
